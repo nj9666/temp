@@ -1,0 +1,60 @@
+git caommands
+
+git init
+// it's initialized repo
+// .git folder created
+// local repo created
+
+git config --global user.name "nj9666"
+git config --global user.email "nj9666@gmail.com"
+// it use for configer uaser name and email 
+// this name and email are use for commit author info
+
+git status
+// it's shows all the current activities of local repo
+// untracked files (U) or tracked files (A)
+// current branch name
+
+git add test1.txt
+// it's move files from working area to staging area
+// it's convert untracked files to tracked files (U to A)
+git add .
+// it's move all files from working area to staging area
+
+
+git commit -m "test msg for commit"
+// it's move files staging area to local repo
+// '-m "some text"' this shows what commit message is.
+
+git log
+// it's shows all previous commits with 
+//id,
+//branch,
+//author,
+//date,
+//commit message
+
+
+git ls-files
+// it shows all files in repo which are commited or tracked files (A)
+
+git remote add origin https://github.com/nj9***/abc****.git
+// it connects local repo to remote repository
+// where origin is default alias of remote repo
+
+
+git remote -v
+// it shows connected remote repository
+
+git push origin master
+// push all files and commit activities from local repo to remote repo
+// it requires auth credentials of remote repo owner (user name and password)
+
+git branch
+// shows all branchs
+
+git branch <branch name>
+// create a new branch with specific name
+
+git checkout <branch name>
+// switching branch with specific name

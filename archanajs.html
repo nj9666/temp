@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <pre id="pre">
+    Encodes text by substituting character with another one provided in the pair.(pass
+    the substitutions array like ['ab','cd'] and input string)and return the encoded string.
+    For example pair "ab" defines all "a" chars will be replaced with "b" and all "b" chars
+    will be replaced with "a"
+    Examples:
+    substitutions = ["ab"], input = "aabbcc", output = "bbaacc"
+    substitutions = ["ab", "cd"], input = "adam", output = "bcbm"
+</pre>
+    <h3 id="h">check console log for text output</h3>
+    <script>
+        String.prototype.replaceAt = function (index, replacement) {
+            return this.substr(0, index) + replacement + this.substr(index + replacement.length);
+        }
+        function encodeString(substitutions, input) {
+
+            substitutions.forEach(ele => {
+                var pel1 = ele.charAt(0);
+                var pel2 = ele.charAt(1);
+                for (var i = 0; i < input.length; i++) {
+                    var cc = input.charAt(i);
+                    if (ele.includes(cc)) {
+                        if (cc == pel1) {
+                            input = input.replaceAt(i, pel2);
+                        } else {
+                            input = input.replaceAt(i, pel1);
+                        }
+                    }
+                }
+            });
+            return input;
+        }
+        console.log(encodeString(["ab"], "aabbcc"));
+        console.log(encodeString(["ab", "cd"], "adam"));
+
+        var h = document.getElementById("h");
+        h.insertAdjacentHTML("afterend", "<p>" + encodeString(["ab", "cd"], "adam") + "</p>");
+        h.insertAdjacentHTML("afterend", "<p>" + encodeString(["ab"], "aabbcc") + "</p>");
+
+    </script>
+</body>
+
+</html>
